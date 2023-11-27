@@ -6,20 +6,21 @@ public class Account
 {
    private int accountNumber; // account number
    private int pin; // PIN for authentication
-   private double availableBalance; // funds available for withdrawal
-   private double totalBalance; // funds available + pending deposits
+   private Euro availableBalance; // funds available for withdrawal 可提取资金
+   private Euro totalBalance; // funds available + pending deposits 可用资金+待定存款
 
-   // Account constructor initializes attributes
-   public Account( int theAccountNumber, int thePIN, 
-      double theAvailableBalance, double theTotalBalance )
+   // Account constructor initializes attributes //初始化属性
+   public Account( int theAccountNumber, int thePIN,
+      Euro theAvailableBalance, Euro theTotalBalance )
    {
       accountNumber = theAccountNumber;
       pin = thePIN;
       availableBalance = theAvailableBalance;
       totalBalance = theTotalBalance;
-   } // end Account constructor
+   } // end Account constructor  //结束账户构造函数
 
-   // determines whether a user-specified PIN matches PIN in Account
+
+   // determines whether a user-specified PIN matches PIN in Account //确定用户指定的PIN是否与帐户中的PIN匹配
    public boolean validatePIN( int userPIN )
    {
       if ( userPIN == pin )
@@ -28,29 +29,29 @@ public class Account
          return false;
    } // end method validatePIN
    
-   // returns available balance
-   public double getAvailableBalance()
+   // returns available balance //返回可用余额
+   public Euro getAvailableBalance()
    {
       return availableBalance;
    } // end getAvailableBalance
 
-   // returns the total balance
-   public double getTotalBalance()
+   // returns the total balance //返回总余额
+   public Euro getTotalBalance()
    {
       return totalBalance;
    } // end method getTotalBalance
 
-   // credits an amount to the account
-   public void credit( double amount )
+   // credits an amount to the account //将金额存入帐户
+   public void credit( Euro amount )
    {
-      totalBalance += amount; // add to total balance
+      totalBalance.somma(amount);// add to total balance //添加到总余额
    } // end method credit
 
    // debits an amount from the account
-   public void debit( double amount )
+   public void debit( Euro amount )
    {
-      availableBalance -= amount; // subtract from available balance
-      totalBalance -= amount; // subtract from total balance
+      availableBalance.sottrai(amount); // subtract from available balance //从可用余额中扣除
+      totalBalance.sottrai(amount); // subtract from total balance //从总余额中扣除
    } // end method debit
 
    // returns account number

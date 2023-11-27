@@ -4,27 +4,29 @@ package code.Business_logic;
 
 public class CashDispenser 
 {
-   // the default initial number of bills in the cash dispenser
+   // the default initial number of bills in the cash dispenser //现金分配器中初始票据的默认数量
    private final static int INITIAL_COUNT = 500;
-   private int count; // number of $20 bills remaining
    
-   // no-argument CashDispenser constructor initializes count to default
+   private int count; // number of $20 bills remaining //剩余的20美元票数
+   
+   // no-argument CashDispenser constructor initializes count to default //无参数CashDispenser构造函数将计数初始化为默认值
    public CashDispenser()
    {
-      count = INITIAL_COUNT; // set count attribute to default
+      count = INITIAL_COUNT; // set count attribute to default //将计数属性设置为默认值
    } // end CashDispenser constructor
 
-   // simulates dispensing of specified amount of cash
-   public void dispenseCash( int amount )
+   // simulates dispensing of specified amount of cash //模拟分配指定金额的现金
+   public void dispenseCash( Euro amount )
    {
-      int billsRequired = amount / 20; // number of $20 bills required
+
+      int billsRequired = (int) (amount.getValore() / 2000); // number of $20 bills required //所需的20美元票数
       count -= billsRequired; // update the count of bills
    } // end method dispenseCash
 
-   // indicates whether cash dispenser can dispense desired amount
-   public boolean isSufficientCashAvailable( int amount )
+   // indicates whether cash dispenser can dispense desired amount //指示现金分配器是否可以分配所需的金额
+   public boolean isSufficientCashAvailable( Euro amount )
    {
-      int billsRequired = amount / 20; // number of $20 bills required
+      int billsRequired = (int) (amount.getValore() / 2000);  // number of $20 bills required
 
       if ( count >= billsRequired  )
          return true; // enough bills available
