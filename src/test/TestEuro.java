@@ -9,7 +9,7 @@ public class TestEuro {
 
     @Test
     public void testCostruttoreEuroConValorePositivo() {
-        Euro euro = new Euro(10, 50);
+        Euro euro = new Euro(20, 50);
         assertEquals(1050, euro.getValore());
     }
 
