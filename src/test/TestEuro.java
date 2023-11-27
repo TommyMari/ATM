@@ -9,8 +9,8 @@ public class TestEuro {
 
     @Test
     public void testCostruttoreEuroConValorePositivo() {
-        Euro euro = new Euro(9, 50);
-        assertEquals(950, euro.getValore());
+        Euro euro = new Euro(10, 50);
+        assertEquals(1050, euro.getValore());
     }
 
     @Test
